@@ -34,8 +34,15 @@ class ArticlesController < ApplicationController
     end
   end  
 
-  private
-   def article_params
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to articles_path
+    # o puedo usar root_path
+
+private
+  def article_params
     params.require(:article).permit(:title, :body)
-   end
   end
+end

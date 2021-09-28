@@ -1,5 +1,4 @@
 <h2>Detalle del artículo</h2>
-
 <div>
   <p><strong>Título:</strong></p>
   <p><%= @article.title %></p>
@@ -9,7 +8,20 @@
   <p><%= @article.body %></p>
 </div> 
 
-<h2>Add a comment:</h2>
+<h2>Comentarios</h2>
+<% @article.comments.each do |comment| %>
+  <div>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </div>
+  <div>
+    <strong>Body:</strong>
+    <%= comment.body %>
+  </div>
+<% end %>
+
+
+<h3>Add a comment:</h3>
 
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <div>

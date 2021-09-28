@@ -39,6 +39,7 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     redirect_to articles_path
+  end
     # o puedo usar root_path
 
 private

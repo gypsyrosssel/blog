@@ -9,6 +9,22 @@
   <p><%= @article.body %></p>
 </div> 
 
+<h2>Add a comment:</h2>
+
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <div>
+    <p><%= form.label :commenter %><br></p>
+    <p><%= form.text_field :commenter %></p>
+  </div>
+  <div>
+    <p><%= form.label :body %><br></p>
+    <p><%= form.text_area :body %></p>
+  </div>
+  <div>
+    <%= form.submit %>
+   </div>
+<% end %>
+
 <div>
   <%= link_to 'Edit', edit_article_path(@article) %>
   <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?'} %>

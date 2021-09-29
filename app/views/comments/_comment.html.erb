@@ -2,7 +2,15 @@
   <p><strong>Commenter:</strong></p>
   <p><%= comment.commenter %></p>
 </div>
+
 <div>
   <p><strong>Body:</strong></p>
   <p><%= comment.body %></p>
 </div>
+
+<p>
+  <%= link_to 'Delete comment', [comment.article, comment],
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } %>
+</p>
+
